@@ -1,0 +1,48 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen"/>
+  <title>BAMS Time</title>
+
+<script>
+function init(){bellSchedule();}
+function bellSchedule() {
+  let d = new Date();
+  document.getElementById("clock").innerHTML = d;
+  setTimeout(function () { bellSchedule() }, 1000);
+}
+</script>
+</head>
+
+<body onload="init()">
+  <noscript>
+    You will need JavaScript to use this site.
+  </noscript>
+
+<div id="wrapper">
+
+  <div id="header">
+    <p class="title">
+      <img src="images/logo.png" class="titleImg"/>
+      BAMS <span style="color:darkred;">Time</span>
+      <img src="images/logo.png" class="titleImg" />
+    </p>
+  </div>
+
+  <div id="content">
+
+    <p id="clock"></p>
+
+    <div id="schedulebox">
+      <p id="studentMessage"><br />LINKS:<br /><br /></p>
+      <p id="studentMessage"><a href="https://clock.school/bams/6.html" target="_self">6th Grade Schedule</a><br /><br /></p>
+      <p id="studentMessage"><a href="https://clock.school/bams/7.html" target="_self">7th Grade Schedule</a><br /><br /></p>
+      <p id="studentMessage"><a href="https://clock.school/bams/8.html" target="_self">8th Grade Schedule</a><br /><br /></p>
+      <p id="studentMessage"><a href="https://hac.yisd.net/HomeAccess/Account/LogOn?ReturnUrl=%2fHomeAccess" target="_blank">HAC Logon</a><br /><br /><p>
+   </div>
+
+
+
+
+</div>
+</body>
+</html>

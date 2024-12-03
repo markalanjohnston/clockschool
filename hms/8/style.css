@@ -1,0 +1,145 @@
+:root {
+  --chefchaouen-blue: #488EEFff;
+  --oxford-blue: #000E2Dff;
+  --french-gray: #C6CED9ff;
+  --cadet-gray: #91A0B3ff;
+  --charcoal: #495360ff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* body themes */
+
+body.light {
+  font-family: Arial, sans-serif;
+  background-color: var(--french-gray);
+  color: var(--cobalt-blue);
+}
+
+body.dark {
+  font-family: Arial, sans-serif;
+  background-color: var(--charcoal);
+  color: var(--french-gray);
+}
+
+
+/* Header Styles */
+
+.logo {
+  height: 50px;
+}
+
+header {
+  font-size: smaller;
+  background-color: var(--cadet-gray);
+  color: var(--oxford-blue);
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  min-width: 400px;
+}
+
+header h1 {
+  font-size: 40px;
+  font-weight: bolder;
+  color: var(--secondary-dark);
+  margin: 0;
+  padding: 10px 0;
+}
+
+/* Main Content Styles */
+
+main {
+  min-width: 400px;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0;
+  flex: 1;
+  margin-top: 160px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+#current-time,
+#clock,
+#countdown {
+  padding-bottom: 0;
+}
+
+#current-period {
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 0;
+}
+
+#progress-bar-background,
+#progress-bar {
+  background-color: var(--french-gray);
+  border: 2px solid var(--cadet-gray);
+  margin: 0 25%;
+  width: 50%;
+  height: 40px;
+}
+
+/* Footer Styles */
+
+footer {
+  background-color: var(--cadet-gray);
+  color: var(--oxford-blue);
+  padding: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: small;
+}
+
+/* theme selector */
+#theme-selector {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+  position: relative;
+}
+
+#theme-select {
+  margin-left: 10px;
+  padding: 6px;
+  font-size: 16px;
+  border: 1px solid var(--oxford-blue);
+  background-color: #333;
+  color: var(--cadet-gray);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+
+#theme-select option {
+  background-color: var(--charcoal);
+  color: var(--french-gray);
+}
+
+#theme-select option.light {
+  background-color: var(--charcoal);
+  color: var(--oxford-blue);
+}
+
+#theme-select option.dark {
+  background-color: var(--charcoal);
+  color: var(--oxford-blue);
+}

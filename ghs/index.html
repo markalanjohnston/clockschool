@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3600">
+    <title>Class Schedule App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="index.js"></script>
+    <script src="clock.js"></script>
+
+  </head>
+  
+  <body onload="bellSchedule(); clock()">
+
+    <header>
+      <div id="theme-selector">
+        <label for="theme-select"></label>
+        <select id="theme-select">
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+        </select>
+      </div>
+      <h1>GHS Time</h1>
+      <div id="date"></div>
+      <div id="clock"></div>
+    </header>
+
+    <main>
+      <div id="current">
+        <div id="current-period">Nothing to show!</div>
+        <div id="progress-bar-background">
+          <div id="progress-bar" style="border: 0px; margin: 0; padding:0; float: right; width: 0%;"></div>
+        </div>
+      </div>
+      <h3>Upcoming:</h3>
+      <div id="next-period"></div>
+    </main>
+
+    <footer>
+      <p>for info, contact support@clock.school</p>
+    </footer>
+
+
+    
+  <script>
+    const themeSelect = document.getElementById('theme-select');
+    const body = document.querySelector('body');
+
+    themeSelect.addEventListener('change', function() {
+      updateTheme(this.value);
+    });
+
+    function updateTheme(theme) {
+      body.classList.remove('light', 'dark', 'colorful');
+      body.classList.add(theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    // Set the initial theme based on the stored preference
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      updateTheme(storedTheme);
+      themeSelect.value = storedTheme;
+    }
+</script>
+
+  </body>
+</html>

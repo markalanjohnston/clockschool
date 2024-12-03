@@ -1,0 +1,54 @@
+{
+    "schedule": [
+        {
+            "startTime": 735,
+            "endTime": 736,
+            "msg": "First Bell"
+        },
+        {
+            "startTime": 750,
+            "endTime": 839,
+            "msg": "1st Period"
+        },
+        {
+            "startTime": 843,
+            "endTime": 929,
+            "msg": "2nd Period"
+        },
+        {
+            "startTime": 933,
+            "endTime": 1019,
+            "msg": "3rd Period"
+        },
+        {
+            "startTime": 1023,
+            "endTime": 1109,
+            "msg": "4th Period"
+        },
+        {
+            "startTime": 1113,
+            "endTime": 1159,
+            "msg": "5th Period"
+        },
+        {
+            "startTime": 1159,
+            "endTime": 1229,
+            "msg": "Lunch"
+        },
+        {
+            "startTime": 1233,
+            "endTime": 1319,
+            "msg": "6th Period"
+        },
+        {
+            "startTime": 1323,
+            "endTime": 1409,
+            "msg": "7th Period"
+        },
+        {
+            "startTime": 1413,
+            "endTime": 1500,
+            "msg": "8th Period"
+        }
+    ]
+}

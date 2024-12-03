@@ -1,0 +1,6 @@
+DirectoryIndex down-right-now.html main.php main.html index.php index.html Options -Indexes
+
+AuthType Basic
+AuthName "Password Protected Area"
+AuthUserFile /home1/neh46742/.htpasswds/.htpasswd
+Require valid-user

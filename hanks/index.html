@@ -1,0 +1,239 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen"/>
+  <title>School Time Demo</title>
+
+<script>
+function init(){
+  bellSchedule();
+
+}
+
+function bellSchedule() {
+  let d = new Date();
+  let currentDayOfWeek = d.getDay();
+  let currentYear = d.getYear() - 100;
+  let currentMonth = d.getMonth() + 1;
+  let todaysDate = currentMonth.toString() + d.getDate().toString() + currentYear.toString();
+
+  let currentTimeIndex = d.getHours() + "" + (d.getMinutes()<10?'0':'') + d.getMinutes();
+  let currentMessage = "";
+  let currentMessage2 = "";
+  let nextMessage = "";
+  let nextMessage2 = "";
+  let plusNextMessage = "";
+  let plusNextMessage2 = "";
+  let sched = [];
+  let sched2 = [];
+  let schedTitle = "";
+  let schedTitle2 = "";
+
+if (currentDayOfWeek == 0 || currentDayOfWeek == 6){
+    schedTitle = "";
+    sched = [
+      { t: 0, msg: "School is out!" },
+      { t: 1, msg: "School is out!" },
+      { t: 2359, msg: "School is out!"},
+    ];
+    let sl = sched.length;
+   
+    schedTitle2 = "";
+    sched2 = [
+      { t: 0, msg: "School is out!" },
+      { t: 1, msg: "School is out!" },
+      { t: 2359, msg: "School is out!"},
+    ];
+    let sl2 = sched2.length;
+  }
+  
+  else {
+    schedTitle = "9th & 10th Grade";
+    sched = [
+      { t: 0, msg: "Good Morning! 0 Period Starts at 7:30AM" },
+      { t: 730, msg: "0 Period" },
+      { t: 815, msg: "Transition to 1st Period" },
+      { t: 830, msg: "1st Period" },
+      { t: 915, msg: "Transition" },
+      { t: 920, msg: "2nd Period" },
+      { t: 1005, msg: "Transition" },
+      { t: 1010, msg: "3rd Period" },
+      { t: 1055, msg: "Transition" },
+      { t: 1100, msg: "4th Period" },
+      { t: 1145, msg: "5th Period/A LUNCH" },
+      { t: 1215, msg: "Transition" },
+      { t: 1220, msg: "6th Period" },
+      { t: 1305, msg: "Transition" },
+      { t: 1310, msg: "7th Period" },
+      { t: 1355, msg: "Transition" },
+      { t: 1400, msg: "8th Period" },
+      { t: 1430, msg: "Transition" },
+      { t: 1435, msg: "9th Period" },
+      { t: 1520, msg: "Transition" },
+      { t: 1525, msg: "10th Period" },
+      { t: 1610, msg: "Transition" },
+      { t: 1615, msg: "11th Period" },
+      { t: 1700, msg: "Dismissed" },
+      { t: 2359, msg: "clock will reset"},
+      { t: 2400, msg: "clock will reset"},      
+    ];
+    let sl = sched.length;
+
+    schedTitle2 = "11th & 12th Grade";
+    sched2 = [
+      { t: 0, msg: "Good Morning! 0 Period Starts at 7:30AM" },
+      { t: 730, msg: "0 Period" },
+      { t: 815, msg: "Transition to 1st Period" },
+      { t: 830, msg: "1st Period" },
+      { t: 915, msg: "Transition" },
+      { t: 920, msg: "2nd Period" },
+      { t: 1005, msg: "Transition" },
+      { t: 1010, msg: "3rd Period" },
+      { t: 1055, msg: "Transition" },
+      { t: 1100, msg: "4th Period" },
+      { t: 1145, msg: "Transition" },
+      { t: 1150, msg: "5th Period" },
+      { t: 1235, msg: "6th Period/B LUNCH" },
+      { t: 1305, msg: "Transition" },
+      { t: 1310, msg: "7th Period" },
+      { t: 1355, msg: "Transition" },
+      { t: 1400, msg: "8th Period" },
+      { t: 1430, msg: "Transition" },
+      { t: 1435, msg: "9th Period" },
+      { t: 1520, msg: "Transition" },
+      { t: 1525, msg: "10th Period" },
+      { t: 1610, msg: "Transition" },
+      { t: 1615, msg: "11th Period" },
+      { t: 1700, msg: "Dismissed" },
+      { t: 2359, msg: "clock will reset"},
+      { t: 2400, msg: "clock will reset"},      
+    ];
+    let sl2 = sched2.length;
+
+
+  }
+
+  document.getElementById("schedTitle").innerHTML = schedTitle;
+  document.getElementById("schedTitle2").innerHTML = schedTitle2;
+
+  let sl = sched.length;
+  for (let i = 0; i < sl; i++) {
+    if (currentTimeIndex >= sched[i].t) {
+      currentMessage = sched[i].msg;
+      document.getElementById("message").innerHTML = currentMessage;
+      nextMessage = "";
+      plusNextMessage = "";
+
+      let ni = i+1; let nii = i+2;
+      if (ni < sl && nii < sl) {
+          nextMessage = sched[ni].msg;
+          document.getElementById("next-message").innerHTML = "Next Up...<br />" + nextMessage;
+          plusNextMessage = sched[nii].msg;
+          document.getElementById("plus-next-message").innerHTML = "Then...<br />" + plusNextMessage;
+      }
+    var countDown = (Math.trunc(sched[ni].t/100) * 60 + sched[ni].t % 100) - (Math.trunc(currentTimeIndex/100) * 60 + currentTimeIndex % 100);
+    var countDownSeconds = 59 - d.getSeconds();
+    }
+  }
+
+
+  let sl2 = sched2.length;
+  for (let i = 0; i < sl2; i++) {
+    if (currentTimeIndex >= sched2[i].t) {
+      currentMessage2 = sched2[i].msg;
+      document.getElementById("message2").innerHTML = currentMessage2;
+      nextMessage2 = "";
+      plusNextMessage2 = "";
+
+      let ni = i+1; let nii = i+2;
+      if (ni < sl2 && nii < sl2) {
+          nextMessage2 = sched2[ni].msg;
+          document.getElementById("next-message2").innerHTML = "Next Up...<br />" + nextMessage2;
+          plusNextMessage2 = sched2[nii].msg;
+          document.getElementById("plus-next-message2").innerHTML = "Then...<br />" + plusNextMessage2;
+      }
+    var countDown2 = (Math.trunc(sched2[ni].t/100) * 60 + sched2[ni].t % 100) - (Math.trunc(currentTimeIndex/100) * 60 + currentTimeIndex % 100);
+    var countDownSeconds2 = 59 - d.getSeconds();
+    }
+  }
+
+
+
+
+  if(countDown < 5){
+    countDown = countDown - 1;
+    document.getElementById("countdown").innerHTML = "<span style='color: #CA1D27'>" + countDown + ":" + (countDownSeconds<10?'0':'') + countDownSeconds;
+  }
+  else if(countDown > 60) {
+    document.getElementById("countdown").innerHTML =  "<span style='color: silver'>" + Math.floor(countDown/60) + " hour(s) " +  countDown%60 + " minutes </style>";
+  }
+  else {
+    document.getElementById("countdown").innerHTML =  "<span style='color: silver'>Minutes Remaining: </style>" + countDown;
+  }
+
+
+  if(countDown2 < 5){
+    countDown2 = countDown2 - 1;
+    document.getElementById("countdown2").innerHTML = "<span style='color: #CA1D27'>" + countDown2 + ":" + (countDownSeconds2<10?'0':'') + countDownSeconds2;
+  }
+  else if(countDown > 60) {
+    document.getElementById("countdown2").innerHTML =  "<span style='color: silver'>" + Math.floor(countDown2/60) + " hour(s) " +  countDown2%60 + " minutes </style>";
+  }
+  else {
+    document.getElementById("countdown2").innerHTML =  "<span style='color: silver'>Minutes Remaining: </style>" + countDown2;
+  }
+
+
+  document.getElementById("clock").innerHTML = d;
+
+  setTimeout(function () { bellSchedule() }, 1000);
+}
+
+
+</script>
+</head>
+
+<body onload="init()">
+  <noscript>
+  You will need JavaScript to use this site.
+  </noscript>
+
+  <div id="wrapper">
+
+    <div id="header">
+      <p class="title">
+      <img src="images/logo.png" class="titleImg"/>
+      Hanks Time
+      <img src="images/logo2.png" class="titleImg" />
+      </p>
+    </div>
+
+    <div id="content">
+
+      <p id="clock"></p>
+
+
+      <div id="schedulebox">
+        <p id="schedTitle">Title 1</p>
+        <p id="message">Message 1</p>
+        <p id="countdown">Countdown 1</p>
+        <br />
+        <p id="next-message">Next Message 1</p>
+        <br />
+        <p id="plus-next-message">Plus Next 1</p>
+      </div>
+      
+      <div id="schedulebox2">
+        <p id="schedTitle2">Title 2</p>
+        <p id="message2">Message 2</p>
+        <p id="countdown2">Countdown 2</p>
+        <br />
+        <p id="next-message2">Next Message 2</p>
+        <br />
+        <p id="plus-next-message2">Plus Next 2</p>
+      </div>
+
+
+  </div>
+
+</body>
+</html>
