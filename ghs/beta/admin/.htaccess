@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Restricted Content"
-AuthUserFile /home1/neh46742/htpasswd/.htpasswd
-Require valid-user
